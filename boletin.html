@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bariloche - ¿Cómo Vamos?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-container img {
+            height: 70px;
+            width: auto;
+            background: white;
+            padding: 5px;
+            border-radius: 8px;
+            display: block;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* Boletín Header */
+        .boletin-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .boletin-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .boletin-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .boletin-header .fecha {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .boletin-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            background: white;
+            padding: 12px;
+            border-radius: 50%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .boletin-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        /* Mensajes de la Semana */
+        .mensajes-semana {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid #f39c12;
+        }
+        
+        .mensajes-semana h2 {
+            color: #f39c12;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .mensaje-item {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid #f39c12;
+            transition: all 0.3s;
+        }
+        
+        .mensaje-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.2);
+        }
+        
+        .mensaje-item h3 {
+            color: #e67e22;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .mensaje-item p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .mensaje-fecha {
+            font-size: 0.9rem;
+            color: #999;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+        
+        /* Noticias Grid */
+        .noticias-titulo {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .noticias-titulo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            border-radius: 2px;
+        }
+        
+        .noticias-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .noticia-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .noticia-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .noticia-imagen {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .noticia-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .noticia-contenido {
+            padding: 2rem;
+        }
+        
+        .noticia-fecha {
+            color: #667eea;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .noticia-contenido h3 {
+            color: #1e3c72;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        
+        .noticia-contenido p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .noticia-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        footer p {
+            margin: 0.5rem 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .boletin-header h1 {
+                font-size: 2rem;
+            }
+            
+            .noticias-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+        
+        /* Animaciones */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="logo-bariloche.jpg" alt="Logo Bariloche">
+                <div class="logo-text">Unidad Residencial Bariloche</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#mensajes">Mensajes</a></li>
+                <li><a href="#noticias">Noticias del Año</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Boletín Header -->
+    <div class="boletin-header">
+        <div class="boletin-logo">
+            <img src="logo-bariloche.png" alt="Logo Bariloche">
+        </div>
+        <h1>📰 Bariloche, ¿Cómo Vamos?</h1>
+        <p class="fecha">Boletín Informativo - 2025</p>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+        <!-- Mensajes del Mes -->
+        <section id="mensajes" class="mensajes-semana fade-in">
+            <h2>📢 Mensajes del Mes</h2>
+            
+                <div class="mensaje-item">
+                <h3>Unidad Residencial Bariloche</h3>
+                <p>Damos la bienvenida a un nuevo mes, deseando bienestar y unión para todas las familias de nuestra comunidad. A continuación, compartimos las novedades y recordatorios más importantes:</p>
+            </div>
+             <div class="mensaje-item">      
+                <h3>🎄 Felices Fiestas</h3>
+                <p>La Administración extiende un cordial saludo a todos los residentes y les desea unas felices fiestas. Les informamos que en los próximos días estaremos anunciando la fecha oficial para la Novena del Niño Jesús.</p>
+                <p class="mensaje-fecha">Publicado: Diciembre 2, 2025</p>
+            </div>
+            
+            <div class="mensaje-item">
+                <h3>🎄 Aporte de Aguinaldos</h3>
+                <p>En esta temporada especial queremos resaltar y agradecer la labor del equipo de aseo y seguridad que nos acompaña durante todo el año. Te invitamos a participar con tu aporte voluntario en la caja de aguinaldos ubicada en la portería. Cada gesto suma y es una muestra de gratitud que nuestro personal valora profundamente.</p>
+                <p class="mensaje-fecha">Publicado: Noviembre 28, 2025</p>
+            </div>
+            
+            <div class="mensaje-item">
+                <h3>📬 Buzón de Sugerencias y Felicitaciones</h3>
+                <p>Su opinión es fundamental para seguir mejorando. Recuerde que ahora puedes enviar sus quejas, reclamos, sugerencias o felicitaciones escaneando el código QR disponible en la portería, pagina Web o en nuestros avisos informativos. Cada mensaje nos ayuda a ofrecer un mejor servicio y fortalecer la convivencia en Bariloche.</p>
+                <p class="mensaje-fecha">Publicado: Noviembre 25, 2025</p>
+            </div>
+            <div class="mensaje-item">
+             <h3>📞 Teléfonos Importantes</h3>
+                <p>Para su seguridad y comodidad, ponemos a disposición los números de contacto actualizados de la Administración, Portería, Policía y Bomberos. Le invitamos a consultarlos cuando lo necesite y mantenerlos siempre a la mano.
+
+La Administración y el Consejo de Administración agradecen su participación activa y su compromiso continuo con nuestra comunidad.
+¡Gracias por ser parte de Bariloche!</p>
+                <p class="mensaje-fecha">Publicado: Noviembre 12, 2025</p>
+            </div>
+        </section>
+
+        <!-- Noticias del Año -->
+        <section id="noticias">
+            <h2 class="noticias-titulo">🏆 Actividades y Logros del Año 2025</h2>
+            
+            <div class="noticias-grid">
+                <!-- Noticia 1 -->
+                <div class="noticia-card fade-in">
+                    <div class="noticia-imagen">
+                        📸
+                        <!-- Para agregar foto real: <img src="tu-imagen.jpg" alt="Descripción"> -->
+                    </div>
+                    <div class="noticia-contenido">
+                        <p class="noticia-fecha">Enero 2025</p>
+                        <h3>Acciones de Mejora y Convivencia Comunitaria</h3>
+                        <p>FALTA.</p>
+                        <span class="noticia-tag">Infraestructura</span>
+                    </div>
+                </div>
+
+                <!-- Noticia 2 -->
+                <div class="noticia-card fade-in">
+                    <div class="noticia-imagen">
+                        🎉
+                    </div>
+                    <div class="noticia-contenido">
+                        <p class="noticia-fecha">Febrero 2025</p>
+                        <h3>Día de la Familia Bariloche</h3>
+                        <p>FALTA</p>
+                        <span class="noticia-tag">Eventos</span>
+                    </div>
+                </div>
+
+                <!-- Noticia 3 -->
+                <div class="noticia-card fade-in">
+                    <div class="noticia-imagen">
+                        🌱
+                    </div>
+                    <div class="noticia-contenido">
+                        <p class="noticia-fecha">Marzo 2025</p>
+                        <h3>✔️ Mejoras en la comunicación:</h3>
+<p>Se adquirió un nuevo celular para portería con el fin de optimizar la atención a residentes mientras se superan las fallas en la citofonía.</p>
+
+<h3>✔️ Campañas de convivencia:</h3>
+<p>Se adelantaron campañas pedagógicas sobre el buen uso de los parqueaderos, la reducción de velocidad dentro del conjunto y el adecuado comportamiento con las mascotas en zonas comunes.</p>
+
+<h3>✔️ Cuidado del entorno:</h3>
+<p>Se promovió el ahorro responsable de agua y el respeto por los espacios compartidos.</p>
+
+<h3>✔️ Mantenimiento oportuno:</h3>
+<p>Se atendió de manera inmediata la reparación de una tubería rota en la Torre 6.</p>
+
+<h3>✔️ Gestión de mudanzas:</h3>
+<p>Se recordó a los residentes la importancia de informar y coordinar previamente cualquier mudanza con la Administración.</p>
+
+<span class="noticia-tag">Gestión Comunitaria</span>
+</div> 
+</div>
+
+                <!-- Noticia 4 -->
+                <div class="noticia-card fade-in">
+                    <div class="noticia-imagen">
+                        🔒
+                    </div>
+                    <div class="noticia-contenido">
+                        <p class="noticia-fecha">Abril 2025</p>
+                        <h3>Campañas Comunitarias y Mantenimiento General</h3>
+                       <p>
+✔️ <strong>Recolección de base de datos puerta a puerta:</strong><br>
+Se inició la actualización de la información de residentes y propietarios mediante visitas directas a cada apartamento. También se recordó a la comunidad los números de contacto de portería y administración.<br><br>
+
+ <h3>✔️ Manejo responsable de mascotas:</h3>
+<p>Se reforzó la campaña sobre el adecuado manejo de las mascotas en zonas comunes, promoviendo el cumplimiento de las normas de convivencia.</p>
+
+<h3>✔️ Cuidado de las áreas comunes:</h3>
+<p>Se realizó una campaña para recordar la importancia de no arrojar basuras en espacios compartidos y mantener la unidad limpia.</p>
+
+<h3>✔️ Mantenimiento hidráulico:</h3>
+<p>Se ejecutaron trabajos de mantenimiento en las Torres 5, 6 y 7 para garantizar el buen funcionamiento de la red interna.</p>
+
+<h3>✔️ Campaña de cartera:</h3>
+<p>Se impulsó el pago oportuno de la cuota de administración, buscando reducir los niveles de morosidad en el conjunto.</p>
+
+<h3>✔️ Recomendaciones de Semana Santa:</h3>
+<p>Se compartieron lineamientos y cuidados generales para la temporada de Semana Santa con el fin de promover seguridad y buena convivencia.</p>
+
+<h3>✔️ Cultura de reciclaje:</h3>
+<p>Se desarrolló una campaña pedagógica para fortalecer las prácticas responsables de reciclaje dentro de la unidad residencial.</p>
+
+<span class="noticia-tag">Gestión Integral</span>
+
+                    </div>
+                </div>
+
+                <!-- Noticia 5 -->
+                <div class="noticia-card fade-in">
+                    <div class="noticia-imagen">
+                        🎨
+                    </div>
+                    <div class="noticia-contenido">
+                        <p class="noticia-fecha">Mayo 2025</p>
+                        <h3>Gestión Administrativa, Seguridad y Mejoramiento Comunitario</h3>
+                        <p><h3>✔️ Información sobre la cuota de administración:</h3>
+<p>Se informó a propietarios y residentes el valor aprobado por asamblea: $389.000, con un descuento de $15.000 por pronto pago.</p>
+
+<h3>✔️ Día de las Madres:</h3>
+<p>Se extendió un mensaje de felicitación a todas las madres de la unidad residencial.</p>
+
+<h3>✔️ Atención a emergencia por lluvias:</h3>
+<p>Tras la caída de un árbol sobre la oficina de administración, que generó afectaciones en la iluminación, se actuó de manera inmediata con apoyo del personal de aseo y EMCALI para restablecer el servicio.</p>
+
+<h3>✔️ Brigada de Emergencia:</h3>
+<p>Se realizó campaña informativa para incentivar la participación; sin embargo, la asistencia fue mínima, por lo que se reforzó con dos nuevas campañas a final de mes.</p>
+
+<h3>✔️ Campaña de reciclaje:</h3>
+<p>Se continuó promoviendo prácticas responsables de reciclaje dentro del conjunto.</p>
+
+<h3>✔️ Gestión de cartera:</h3>
+<p>Se reiteró el llamado a realizar los pagos oportunos y a ponerse al día con la administración.</p>
+
+<h3>✔️ Embellecimiento de áreas comunes:</h3>
+<p>Se inició la organización y reparación de tapas y cableado expuesto afectado por contratistas externos, invitando a la comunidad a trabajar conjuntamente en el cuidado de los espacios.</p>
+
+<h3>✔️ Seguridad comunitaria:</h3>
+<p>Se compartieron recomendaciones de seguridad debido al contexto nacional y las manifestaciones presentadas en la ciudad.</p>
+
+<h3>✔️ Mejoras en iluminación:</h3>
+<p>Se reemplazaron lámparas y bombillos en diversas zonas para mejorar la visibilidad y seguridad en los pasillos.</p>
+
+<span class="noticia-tag">Gestión Comunitaria</span>
+                    </div>
+                </div>
+
+                <!-- Noticia 6 -->
+                <div class="noticia-card fade-in">
+                    <div class="noticia-imagen">
+                        👶
+                    </div>
+                    <div class="noticia-contenido">
+                        <p class="noticia-fecha">Junio 2025</p>
+                        <h3>Mejoras en Infraestructura, Atención Comunitaria y Convivencia</h3>
+                        <h3>✔️ Mejoras en iluminación:</h3>
+<p>Se realizaron intervenciones en las zonas de parqueadero para optimizar la iluminación y reforzar la seguridad de los residentes.</p>
+
+<h3>✔️ Atención personalizada de cartera:</h3>
+<p>Se desarrolló una jornada especial de atención individual para programar citas, revisar casos específicos y brindar soluciones de pago a los residentes.</p>
+
+<h3>✔️ Embellecimiento de áreas comunes:</h3>
+<p>Se adelantaron trabajos de mejoramiento en el piso de la UAR, contribuyendo al orden y conservación de los espacios.</p>
+
+<h3>✔️ Prevención y seguridad:</h3>
+<p>Se elaboró y compartió la infografía titulada <em>“Por su seguridad y la de todos: medidas de prevención en momentos críticos”</em>, con pautas claras para la comunidad.</p>
+
+<h3>✔️ Manejo responsable de mascotas:</h3>
+<p>Se retomó la campaña orientada al adecuado comportamiento y cuidado de las mascotas dentro de las zonas comunes.</p>
+
+<h3>✔️ Día del Padre:</h3>
+<p>Se extendió un saludo especial a todos los padres de la unidad residencial.</p>
+
+<h3>✔️ Fumigación general:</h3>
+<p>Se realizó fumigación en áreas comunes y se informó oportunamente a toda la comunidad para su conocimiento y tranquilidad.</p>
+
+<span class="noticia-tag">Gestión Comunitaria</span>
+
+                    </div>
+                </div>
+
+                <!-- Noticia 7 -->
+                <div class="noticia-card fade-in">
+                    <div class="noticia-imagen">
+                        💻
+                    </div>
+                    <div class="noticia-contenido">
+                        <p class="noticia-fecha">Julio 2025</p>
+                        <h3>Campañas de Seguridad, Convivencia y Comunicación Comunitaria</h3>
+                       <h3>✔️ Información sobre el nuevo Pico y Placa:</h3>
+<p>Se compartió a la comunidad una infografía oficial con los cambios establecidos por la Secretaría de Movilidad de Cali para facilitar su cumplimiento.</p>
+
+<h3>✔️ Orden y seguridad en zonas comunes:</h3>
+<p>Se adelantó una campaña informativa recordando que, según la norma TED-MTC-1700 y lineamientos del Sistema de Gestión de Seguridad y Salud en el Trabajo, está prohibido ubicar objetos o materiales en pasillos, escaleras y zonas comunes debido al riesgo que representan en situaciones de evacuación.</p>
+
+<h3>✔️ Comunicación personalizada:</h3>
+<p>Se entregó a cada apartamento un comunicado físico complementando la información de la campaña, reforzando la importancia de mantener los espacios despejados.</p>
+
+<h3>✔️ Canales oficiales de contacto:</h3>
+<p>Se difundió una infografía con los números telefónicos y medios de comunicación de la administración para mejorar la atención y respuesta a los residentes.</p>
+
+<h3>✔️ Ingreso y salida de vehículos:</h3>
+<p>Se realizó campaña para recordar la importancia de permitir el ingreso inmediato del vehículo, evitando riesgos innecesarios para los residentes al permanecer en zonas expuestas.</p>
+
+<h3>✔️ Comité de Convivencia:</h3>
+<p>Se compartió información sobre sus funciones, alcances y procedimientos, con el fin de fortalecer la resolución respetuosa de conflictos dentro de la unidad.</p>
+
+<h3>✔️ Reunión sobre bienestar animal:</h3>
+<p>Se llevó a cabo una reunión virtual para tratar la situación de las mascotas y casos de presunto maltrato animal, brindando orientación sobre el actuar adecuado de los residentes en estos escenarios.</p>
+
+<span class="noticia-tag">Gestión Comunitaria</span>
+
+                    </div>
+                </div>
+
+                <!-- Noticia 8 -->
+                <div class="noticia-card fade-in">
+                    <div class="noticia-imagen">
+                        🏊
+                    </div>
+                    <div class="noticia-contenido">
+                        <p class="noticia-fecha">Agosto 2025</p>
+                        <h3>Convivencia y Bienestar Animal</h3>
+                        <h3>✔️ Webinar sobre bienestar y responsabilidad con las mascotas:</h3>
+<p>Se invitó a la comunidad a participar en el webinar <em>“Mi compañero, mi compromiso”</em>, orientado a fortalecer la tenencia responsable de mascotas y promover una convivencia armónica dentro del conjunto.</p>
+
+<span class="noticia-tag">Gestión Comunitaria</span>
+
+                    </div>
+                </div>
+
+                <!-- Noticia 9 -->
+                <div class="noticia-card fade-in">
+                    <div class="noticia-imagen">
+                        🎓
+                    </div>
+                    <div class="noticia-contenido">
+                        <p class="noticia-fecha">Septiembre 2025</p>
+                        <h3>Mantenimiento Preventivo, Seguridad y Comunicaciones Comunitarias/h3>
+                        <h3>✔️ Mantenimiento del transformador:</h3>
+<p>Se realizó el mantenimiento preventivo del transformador para garantizar la estabilidad del servicio eléctrico. La suspensión temporal de energía fue informada previamente a toda la comunidad.</p>
+
+<h3>✔️ Mejoras en la puerta vehicular:</h3>
+<p>Se instalaron sensores y se efectuaron ajustes necesarios para optimizar el funcionamiento de la puerta vehicular. Estas mejoras hacen parte del proceso para avanzar hacia la certificación exigida por la normativa vigente.</p>
+
+<h3>✔️ Información anticipada sobre el lavado del tanque:</h3>
+<p>Se compartió a los residentes una infografía notificando la programación del lavado del tanque de agua potable a realizarse en octubre, brindando tiempo oportuno para preparativos.</p>
+
+<span class="noticia-tag">Gestión Comunitaria</span>
+
+                    </div>
+                </div>
+
+                <!-- Noticia 10 -->
+                <div class="noticia-card fade-in">
+                    <div class="noticia-imagen">
+                        🎃
+                    </div>
+                    <div class="noticia-contenido">
+                        <p class="noticia-fecha">Octubre 2025</p>
+                        <h3>Actividades, Mantenimientos y Eventos Comunitarios</h3>
+                        <h2>OCTUBRE</h2>
+
+<p>
+✔️ Se realizó recordación a la comunidad sobre los sensores instalados en la puerta vehicular, incluyendo la marcación realizada para mejorar la seguridad y el buen uso del sistema.<br><br>
+
+✔️ Se inició el mes con el lavado del tanque de agua, actividad ejecutada de manera exitosa y comunicada previamente a todos los residentes.<br><br>
+
+✔️ Se informó y se llevó a cabo con éxito la celebración del Día de los Niños – Halloween, logrando una excelente participación de los residentes y garantizando un espacio seguro y organizado para los menores.<br><br>
+</p>
+
+<span class="noticia-tag">Seguridad y Comunidad</span>
+
+                    </div>
+                </div>
+
+                <!-- Noticia 11 -->
+                <div class="noticia-card fade-in">
+                    <div class="noticia-imagen">
+                        🔧
+                    </div>
+                    <div class="noticia-contenido">
+                        <p class="noticia-fecha">Noviembre 2025</p>
+                        <h3>Reparaciones Locativas y Preparativos de Navidad</h3>
+                        <p>
+✔️ Se realizaron reparaciones locativas en diferentes zonas comunes, interviniendo daños pendientes con personal calificado para garantizar un mantenimiento adecuado de la unidad.<br><br>
+
+✔️ Con el apoyo del personal de aseo, se llevaron a cabo las instalaciones y preparativos correspondientes a la temporada de Navidad, embelleciendo los espacios comunes para toda la comunidad.<br><br>
+</p>
+<span class="noticia-tag">Gestión Operativa</span>
+
+
+                    </div>
+                </div>
+
+                <!-- Noticia 12 -->
+                <div class="noticia-card fade-in">
+                    <div class="noticia-imagen">
+                        🎄
+                    </div>
+                    <div class="noticia-contenido">
+                        <p class="noticia-fecha">Diciembre 2025</p>
+                        <h3>Gestión y Comunicaciones – Diciembre</h3>
+                        <p>
+✔️ <strong>Entrega del KIT DE CONVIVENCIA por apartamento:</strong><br>
+Durante diciembre se entregará a cada residente y propietario un sobre que incluye: el Manual de Convivencia, indicaciones del Buzón de Quejas y Reclamos, hoja con números de contacto (administración, portería y emergencias), códigos QR para actualización de datos, acceso al buzón digital y formato de calificación del servicio del personal. Todos estos documentos podrán diligenciarse de manera virtual o manual, depositándolos en la cajita de sugerencias ubicada en administración.<br><br>
+
+✔️ <strong>Finalización de la decoración navideña:</strong><br>
+Se completó la instalación de adornos y luminarias en zonas comunes para ambientar la temporada de diciembre.<br><br>
+
+✔️ <strong>Pesebre y novena:</strong><br>
+Se informará a la comunidad la programación oficial del pesebre y los días destinados para la novena navideña.<br><br>
+
+✔️ <strong>Caja de aguinaldos:</strong><br>
+Se habilitará en portería una caja especial para la entrega de aguinaldos destinados al personal de la unidad.
+</p>
+<span class="noticia-tag">Gestión Comunitaria</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>&copy; 2025 Unidad Residencial Bariloche</strong></p>
+        <p>Boletín Informativo - Todos los derechos reservados</p>
+        <p style="margin-top: 1rem; font-style: italic;">"Creciendo juntos, construyendo futuro"</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animación de entrada
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad Residencial Bariloche</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%233498db" width="1200" height="600"/><path fill="%232c3e50" opacity="0.3" d="M0,300 Q300,200 600,300 T1200,300 L1200,600 L0,600 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        section h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Info Cards */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h3 {
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+        
+        /* PQRSF Section */
+        #pqrsf {
+            background: #f8f9fa;
+        }
+        
+        .pqrsf-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #3498db;
+        }
+        
+        .pqrsf-info h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .pqrsf-info ul {
+            margin-left: 2rem;
+            color: #555;
+        }
+        
+        .pqrsf-info li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Form Styles */
+        form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        button {
+            background: #3498db;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #2980b9;
+        }
+        
+        /* Clasificados Section */
+        #clasificados {
+            background: #fff;
+        }
+        
+        .clasificados-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .clasificados-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .clasificado-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+        
+        .clasificado-card:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .clasificado-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+        }
+        
+        .clasificado-header h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .clasificado-categoria {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .clasificado-body {
+            padding: 1.5rem;
+        }
+        
+        .clasificado-info {
+            margin-bottom: 1rem;
+        }
+        
+        .clasificado-info strong {
+            color: #2c3e50;
+        }
+        
+        .clasificado-contacto {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        /* Alert Message */
+        .alert {
+            display: none;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+        
+        .alert.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .alert.show {
+            display: block;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🏢 Unidad Residencial Bariloche</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#informacion">Información</a></li>
+                <li><a href="#pqrsf">PQRSF</a></li>
+                <li><a href="#clasificados">Clasificados</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <h1>Bienvenidos a Bariloche</h1>
+        <p>Tu hogar, nuestra comunidad</p>
+    </section>
+
+    <!-- Información General -->
+    <section id="informacion">
+        <h2>Información General</h2>
+        <p class="section-subtitle">Todo lo que necesitas saber sobre nuestra unidad residencial</p>
+        
+        <div class="info-cards">
+            <div class="card">
+                <h3>📋 Administración</h3>
+                <p><strong>Horario de atención:</strong><br>Lunes a Viernes: 8:00 AM - 5:00 PM<br>Sábados: 8:00 AM - 12:00 PM</p>
+                <p><strong>Teléfono:</strong> (123) 456-7890</p>
+                <p><strong>Email:</strong> admin@bariloche.com</p>
+            </div>
+            
+            <div class="card">
+                <h3>🏊 Zonas Comunes</h3>
+                <p>Piscina, Salón Social, Parque Infantil, Gimnasio, BBQ</p>
+                <p><strong>Reservas:</strong> Con 48 horas de anticipación</p>
+            </div>
+            
+            <div class="card">
+                <h3>🚨 Emergencias</h3>
+                <p><strong>Vigilancia 24/7:</strong> (123) 456-7899</p>
+                <p><strong>Mantenimiento:</strong> (123) 456-7898</p>
+                <p><strong>Administración:</strong> (123) 456-7890</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PQRSF Section -->
+    <section id="pqrsf">
+        <h2>PQRSF - Peticiones, Quejas, Reclamos, Sugerencias y Felicitaciones</h2>
+        <p class="section-subtitle">¿Quiere contarnos algo? Aquí puede formular de manera respetuosa su solicitud</p>
+        
+        <div class="pqrsf-info">
+            <h3>Reglamento para hacer solicitudes</h3>
+            <p><strong>Apreciado Residente:</strong></p>
+            <p>Cada solicitud será tramitada por la administración, el consejo de administración o el comité de convivencia según usted lo determine.</p>
+            <ul>
+                <li>Las solicitudes únicamente se podrán realizar por medio de la página oficial, utilizando el formulario establecido para este fin.</li>
+                <li>Las solicitudes se deben hacer de manera oportuna, respetuosa, clara y concisa para poder brindar respuestas oportunas.</li>
+                <li>El tiempo de respuesta será de 5 días hábiles.</li>
+                <li>La respuesta se dará de forma escrita al correo electrónico suministrado por el residente.</li>
+            </ul>
+        </div>
+        
+        <form id="pqrsfForm">
+            <div id="alertMessage" class="alert"></div>
+            
+            <div class="form-group">
+                <label for="nombre">Nombre completo *</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="apartamento">Torre / Apartamento *</label>
+                <input type="text" id="apartamento" name="apartamento" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Correo electrónico *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="telefono">Teléfono *</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="tipo">Tipo de solicitud *</label>
+                <select id="tipo" name="tipo" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="peticion">Petición</option>
+                    <option value="queja">Queja</option>
+                    <option value="reclamo">Reclamo</option>
+                    <option value="sugerencia">Sugerencia</option>
+                    <option value="felicitacion">Felicitación</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="dirigida">Dirigida a *</label>
+                <select id="dirigida" name="dirigida" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="administracion">Administración</option>
+                    <option value="consejo">Consejo de Administración</option>
+                    <option value="convivencia">Comité de Convivencia</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="asunto">Asunto *</label>
+                <input type="text" id="asunto" name="asunto" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="mensaje">Descripción detallada *</label>
+                <textarea id="mensaje" name="mensaje" required placeholder="Por favor sea claro, conciso y respetuoso en su solicitud"></textarea>
+            </div>
+            
+            <button type="submit">Enviar Solicitud</button>
+        </form>
+    </section>
+
+    <!-- Clasificados de Microempresarios -->
+    <section id="clasificados">
+        <h2>Clasificados de Microempresarios Residentes</h2>
+        <p class="section-subtitle">Apoya los emprendimientos de tu comunidad</p>
+        
+        <div class="clasificados-header">
+            <p>¿Eres residente y tienes un negocio o servicio? <a href="mailto:admin@bariloche.com?subject=Publicar Clasificado">Contáctanos para publicar aquí</a></p>
+        </div>
+        
+        <div class="clasificados-grid">
+            <div class="clasificado-card">
+                <div class="clasificado-header">
+                    <h3>🍰 Repostería Dulce Hogar</h3>
+                    <div class="clasificado-categoria">Alimentos y Bebidas</div>
+                </div>
+                <div class="clasificado-body">
+                    <div class="clasificado-info">
+                        <p>Tortas personalizadas, cupcakes, postres para eventos y celebraciones. Ingredientes de primera calidad.</p>
+                    </div>
+                    <div class="clasificado-contacto">
+                        <strong>Contacto:</strong><br>
+                        María González - Torre A, Apto 301<br>
+                        📱 (123) 456-1111<br>
+                        📧 dulcehogar@email.com
+                    </div>
+                </div>
+            </div>
+            
+            <div class="clasificado-card">
+                <div class="clasificado-header">
+                    <h3>💻 Soporte Tech</h3>
+                    <div class="clasificado-categoria">Tecnología y Reparaciones</div>
+                </div>
+                <div class="clasificado-body">
+                    <div class="clasificado-info">
+                        <p>Reparación de computadores, celulares y tablets. Instalación de software, configuración de redes WiFi. Servicio a domicilio.</p>
+                    </div>
+                    <div class="clasificado-contacto">
+                        <strong>Contacto:</strong><br>
+                        Carlos Rodríguez - Torre B, Apto 205<br>
+                        📱 (123) 456-2222<br>
+                        📧 soportetech@email.com
+                    </div>
+                </div>
+            </div>
+            
+            <div class="clasificado-card">
+                <div class="clasificado-header">
+                    <h3>✂️ Peluquería Estilo</h3>
+                    <div class="clasificado-categoria">Belleza y Cuidado Personal</div>
+                </div>
+                <div class="clasificado-body">
+                    <div class="clasificado-info">
+                        <p>Cortes de cabello para toda la familia, peinados, manicure, pedicure. Servicio personalizado en mi apartamento.</p>
+                    </div>
+                    <div class="clasificado-contacto">
+                        <strong>Contacto:</strong><br>
+                        Ana Martínez - Torre C, Apto 402<br>
+                        📱 (123) 456-3333<br>
+                        Horario: Lun-Sáb 9AM-6PM
+                    </div>
+                </div>
+            </div>
+            
+            <div class="clasificado-card">
+                <div class="clasificado-header">
+                    <h3>📚 Clases Particulares</h3>
+                    <div class="clasificado-categoria">Educación</div>
+                </div>
+                <div class="clasificado-body">
+                    <div class="clasificado-info">
+                        <p>Matemáticas, Física y Química para primaria y bachillerato. Preparación para exámenes. Métodos didácticos.</p>
+                    </div>
+                    <div class="clasificado-contacto">
+                        <strong>Contacto:</strong><br>
+                        Prof. Luis Hernández - Torre A, Apto 105<br>
+                        📱 (123) 456-4444<br>
+                        📧 clasesluis@email.com
+                    </div>
+                </div>
+            </div>
+            
+            <div class="clasificado-card">
+                <div class="clasificado-header">
+                    <h3>🐕 Paseo de Mascotas</h3>
+                    <div class="clasificado-categoria">Servicios para Mascotas</div>
+                </div>
+                <div class="clasificado-body">
+                    <div class="clasificado-info">
+                        <p>Paseo de perros, cuidado de mascotas mientras viajas. Servicio confiable y con amor por los animales.</p>
+                    </div>
+                    <div class="clasificado-contacto">
+                        <strong>Contacto:</strong><br>
+                        Sofía López - Torre B, Apto 310<br>
+                        📱 (123) 456-5555<br>
+                        Disponible todos los días
+                    </div>
+                </div>
+            </div>
+            
+            <div class="clasificado-card">
+                <div class="clasificado-header">
+                    <h3>🏋️ Personal Trainer</h3>
+                    <div class="clasificado-categoria">Deportes y Fitness</div>
+                </div>
+                <div class="clasificado-body">
+                    <div class="clasificado-info">
+                        <p>Entrenamiento personalizado, rutinas adaptadas a tus objetivos. Sesiones en el gimnasio del conjunto o en tu apartamento.</p>
+                    </div>
+                    <div class="clasificado-contacto">
+                        <strong>Contacto:</strong><br>
+                        Diego Torres - Torre C, Apto 201<br>
+                        📱 (123) 456-6666<br>
+                        📧 fitness@email.com
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Unidad Residencial Bariloche. Todos los derechos reservados.</p>
+        <p>Desarrollado para mejorar la comunicación y convivencia de nuestra comunidad</p>
+    </footer>
+
+    <script>
+        // Manejo del formulario PQRSF
+        const form = document.getElementById('pqrsfForm');
+        const alertMessage = document.getElementById('alertMessage');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Recopilar datos del formulario
+            const formData = {
+                nombre: document.getElementById('nombre').value,
+                apartamento: document.getElementById('apartamento').value,
+                email: document.getElementById('email').value,
+                telefono: document.getElementById('telefono').value,
+                tipo: document.getElementById('tipo').value,
+                dirigida: document.getElementById('dirigida').value,
+                asunto: document.getElementById('asunto').value,
+                mensaje: document.getElementById('mensaje').value,
+                fecha: new Date().toLocaleString('es-CO')
+            };
+            
+            // Mostrar mensaje de éxito
+            alertMessage.textContent = '✓ Su solicitud ha sido enviada exitosamente. Recibirá respuesta en su correo electrónico dentro de 5 días hábiles.';
+            alertMessage.className = 'alert success show';
+            
+            // Limpiar formulario
+            form.reset();
+            
+            // Ocultar mensaje después de 5 segundos
+            setTimeout(() => {
+                alertMessage.classList.remove('show');
+            }, 5000);
+            
+            // Aquí se enviaría a un servidor real
+            console.log('Solicitud enviada:', formData);
+        });
+        
+        // Smooth scroll para navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

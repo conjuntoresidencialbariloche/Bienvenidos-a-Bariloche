@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificados - Bariloche</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-container img {
+            height: 70px;
+            width: auto;
+            background: white;
+            padding: 5px;
+            border-radius: 8px;
+            display: block;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Header */
+        .clasificados-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .clasificados-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .clasificados-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .clasificados-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        /* Info Section */
+        .clasificados-info {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .clasificados-info h3 {
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .clasificados-info p {
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        
+        .clasificados-info ul {
+            margin-left: 2rem;
+            color: #555;
+            line-height: 1.9;
+        }
+        
+        .clasificados-info ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .publicar-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .publicar-box h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .publicar-box p {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Clasificados Grid */
+        .clasificados-titulo {
+            text-align: center;
+            font-size: 2rem;
+            color: #1e3c72;
+            margin-bottom: 2rem;
+        }
+        
+        .clasificados-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .clasificado-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: all 0.3s;
+            border-top: 4px solid #667eea;
+        }
+        
+        .clasificado-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .clasificado-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+        }
+        
+        .clasificado-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .clasificado-categoria {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .clasificado-body {
+            padding: 2rem;
+        }
+        
+        .clasificado-body p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        .clasificado-contacto {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+        }
+        
+        .clasificado-contacto strong {
+            color: #1e3c72;
+        }
+        
+        .nota-final {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .nota-final p {
+            font-size: 1.2rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        footer p {
+            margin: 0.5rem 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .clasificados-header h1 {
+                font-size: 2rem;
+            }
+            
+            .clasificados-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+        
+        /* Animaciones */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="logo-bariloche.png" alt="Logo Bariloche">
+                <div class="logo-text">Unidad Residencial Bariloche</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="boletin.html">Bariloche, ¿Cómo Vamos?</a></li>
+                <li><a href="index.html#formularios">Formularios</a></li>
+                <li><a href="clasificados.html">Clasificados</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Clasificados Header -->
+    <div class="clasificados-header">
+        <h1>🏪 Clasificados de Microempresarios</h1>
+        <p>Apoya los emprendimientos de tu comunidad</p>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+        <!-- Información para publicar -->
+        <div class="clasificados-info fade-in">
+            <h3>📢 ¿Quieres Publicar tu Emprendimiento?</h3>
+            <p><strong>¡Es completamente GRATIS para residentes y propietarios de Bariloche!</strong></p>
+            <p>Únete a nuestra red de microempresarios y da a conocer tu negocio a toda la comunidad. Para publicar tu clasificado, necesitamos la siguiente información:</p>
+            <ul>
+                <li><strong>Nombre del negocio o emprendimiento</strong></li>
+                <li><strong>Categoría:</strong> ¿Qué tipo de producto o servicio ofreces? (Ejemplo: Repostería, Plomería, Clases particulares, etc.)</li>
+                <li><strong>Descripción breve:</strong> Cuéntanos en pocas palabras qué ofreces y qué te hace especial</li>
+                <li><strong>Número de contacto:</strong> WhatsApp, teléfono o celular</li>
+                <li><strong>Página web o redes sociales</strong> (opcional)</li>
+            </ul>
+            
+            <div class="publicar-box">
+                <h4>🚀 ¡Publica tu Negocio Ahora!</h4>
+                <p>Envíanos tu información y estaremos encantados de incluir tu emprendimiento en esta sección</p>
+                <a href="mailto:conjuntoresidencialbariloche@gmail.com?subject=Publicar Clasificado en Bariloche&body=Nombre del Negocio:%0D%0A%0D%0ACategoría:%0D%0A%0D%0ADescripción:%0D%0A%0D%0AContacto:%0D%0A%0D%0APágina Web/Redes Sociales:%0D%0A" class="btn-primary">Enviar mi Información</a>
+            </div>
+        </div>
+        
+        <!-- Emprendimientos -->
+        <h3 class="clasificados-titulo">Emprendimientos Destacados</h3>
+        
+        <div class="clasificados-grid">
+            <!-- Clasificado Ejemplo 1 -->
+            <div class="clasificado-card fade-in">
+                <div class="clasificado-header">
+                    <h3>🍰 Dulces Delicias</h3>
+                    <p class="clasificado-categoria">Repostería Artesanal</p>
+                </div>
+                <div class="clasificado-body">
+                    <p>Tortas personalizadas, cupcakes, postres y bocaditos para todo tipo de eventos. Ingredientes frescos y recetas caseras. ¡Endulza tus celebraciones con nosotros!</p>
+                    <div class="clasificado-contacto">
+                        <p><strong>📱 Contacto:</strong> 300 123 4567</p>
+                        <p><strong>📍 Torre:</strong> 3 - Apto 301</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Clasificado Ejemplo 2 -->
+            <div class="clasificado-card fade-in">
+                <div class="clasificado-header">
+                    <h3>🔧 Reparaciones Express</h3>
+                    <p class="clasificado-categoria">Plomería y Electricidad</p>
+                </div>
+                <div class="clasificado-body">
+                    <p>Servicio profesional de plomería y electricidad. Reparaciones, instalaciones y mantenimiento. Atención rápida y garantizada. ¡Tu hogar en buenas manos!</p>
+                    <div class="clasificado-contacto">
+                        <p><strong>📱 Contacto:</strong> 315 987 6543</p>
+                        <p><strong>📍 Torre:</strong> 5 - Apto 502</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Clasificado Ejemplo 3 -->
+            <div class="clasificado-card fade-in">
+                <div class="clasificado-header">
+                    <h3>📚 Clases Particulares</h3>
+                    <p class="clasificado-categoria">Educación</p>
+                </div>
+                <div class="clasificado-body">
+                    <p>Clases de matemáticas, inglés y español para niños y jóvenes. Profesora con 10 años de experiencia. Horarios flexibles. ¡Refuerza el aprendizaje de tus hijos!</p>
+                    <div class="clasificado-contacto">
+                        <p><strong>📱 Contacto:</strong> 320 555 1234</p>
+                        <p><strong>📍 Torre:</strong> 7 - Apto 701</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="nota-final fade-in">
+            <p><strong>💡 Nota:</strong> Los clasificados mostrados son ejemplos. Envíanos tu información para aparecer aquí.</p>
+            <a href="mailto:conjuntoresidencialbariloche@gmail.com?subject=Publicar Clasificado en Bariloche" class="btn-primary">Publicar mi Emprendimiento</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>&copy; 2025 Unidad Residencial Bariloche</strong></p>
+        <p>Clasificados - Todos los derechos reservados</p>
+        <p style="margin-top: 1rem; font-style: italic;">"Creciendo juntos, construyendo futuro"</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animación de entrada
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
