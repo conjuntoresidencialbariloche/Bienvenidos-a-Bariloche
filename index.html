@@ -716,7 +716,8 @@
 <p><strong>CONTADOR (Cita programada): </strong><br> Sábados: 9:00 AM - 12:00 M</p>
                 <p style="margin-top: 1rem;"><strong>Teléfono:</strong><br>321 8511222 o 320 7663189</p>
             </div>
-            
+
+           
             <div class="contacto-card fade-in">
                 <div class="contacto-icon">📧</div>
                 <h3>Correo Electrónico</h3>
@@ -735,6 +736,161 @@
         </div>
     </section>
 
+<div class="card"><section id="agenda-citas" style="max-width:650px; margin:auto; padding:2rem 1rem;">
+    <h2 style="text-align:center; color:#1e3c72; font-size:1.6rem; margin-bottom:0.5rem;">
+        Agenda su Cita
+    </h2>
+
+    <!-- DESCRIPCIÓN PROFESIONAL -->
+    <p style="
+        text-align:center; 
+        font-size:0.95rem; 
+        color:#333; 
+        max-width:540px; 
+        margin:0 auto 1.2rem;
+        line-height:1.4;
+    ">
+        Este espacio está destinado para solicitar una cita con el área contable del conjunto, con el fin de revisar temas relacionados con cartera, estados de cuenta o aclaración de saldos. Asimismo, permite coordinar reuniones con la administración para tratar asuntos importantes sobre la propiedad horizontal o situaciones que requieran atención personalizada.
+    </p>
+
+    <div style="
+        background:white; 
+        padding:1.2rem; 
+        border-radius:10px; 
+        box-shadow:0 3px 12px rgba(0,0,0,0.1);
+        font-size:0.9rem;
+        position:relative;
+    ">
+
+        <!-- BOTÓN WHATSAPP -->
+        <a href="https://wa.me/message/WFIML24ZO7WFJ1" target="_blank"
+           style="
+               position:absolute;
+               top:12px;
+               right:12px;
+               background:#25D366;
+               color:white;
+               padding:6px 10px;
+               border-radius:50px;
+               font-size:0.8rem;
+               text-decoration:none;
+               display:flex;
+               align-items:center;
+               gap:5px;
+               box-shadow:0 2px 6px rgba(0,0,0,0.2);
+           ">
+           <span style="font-size:1rem;">💬</span> Ayuda
+        </a>
+
+        <!-- FILA 1: NOMBRE + APTO -->
+        <div style="display:flex; gap:12px; margin-bottom:1rem;">
+            <div style="flex:1;">
+                <label style="font-weight:bold; color:#1e3c72;">👤 Nombre</label>
+                <input type="text" id="nombreCita" placeholder="Nombre completo" 
+                       style="padding:0.45rem; width:100%; border:1px solid #ccc; border-radius:6px;">
+            </div>
+
+            <div style="flex:0.7;">
+                <label style="font-weight:bold; color:#1e3c72;">🏠 Apto</label>
+                <input type="text" id="aptoCita" placeholder="Torre / Apto"
+                       style="padding:0.45rem; width:100%; border:1px solid #ccc; border-radius:6px;">
+            </div>
+        </div>
+
+        <!-- FILA 2: FECHA + HORARIO -->
+        <div style="display:flex; gap:12px; margin-bottom:1rem;">
+            <div style="flex:1;">
+                <label style="font-weight:bold; color:#1e3c72;">📅 Fecha</label>
+                <input type="date" id="fechaCita" 
+                       style="padding:0.45rem; width:100%; border:1px solid #ccc; border-radius:6px;">
+            </div>
+
+            <div style="flex:1;">
+                <label style="font-weight:bold; color:#1e3c72;">🕒 Horario Aproximado</label>
+                <input type="time" id="horaCita"
+                       style="padding:0.45rem; width:100%; border:1px solid #ccc; border-radius:6px;">
+            </div>
+        </div>
+
+        <!-- FILA 3: MOTIVO -->
+        <div style="display:flex; gap:12px; margin-bottom:1rem;">
+            <div style="flex:1;">
+                <label style="font-weight:bold; color:#1e3c72;">📝 Motivo</label>
+                <input type="text" id="motivoCorto" placeholder="Motivo"
+                       style="padding:0.45rem; width:100%; border:1px solid #ccc; border-radius:6px;">
+            </div>
+        </div>
+
+        <!-- BOTÓN -->
+        <button onclick="enviarCitaMediana()" 
+                style="
+                    background:#1e3c72;
+                    color:white;
+                    padding:0.6rem; 
+                    border:none; 
+                    border-radius:6px; 
+                    width:100%; 
+                    font-size:1rem; 
+                    cursor:pointer;
+                ">
+            📧 Enviar Solicitud de Cita
+        </button>
+
+        <!-- LÍNEA DECORATIVA -->
+        <hr style="margin:1rem 0; border:0; border-top:1px solid #ccc;">
+
+        <!-- MENSAJE DE CONFIRMACIÓN -->
+        <p style="
+            font-size:0.82rem; 
+            color:#444; 
+            text-align:center;
+            margin-bottom:0.2rem;
+        ">
+            *La administración confirmará la disponibilidad de la fecha y hora seleccionadas mediante correo electrónico o llamada telefónica.*
+        </p>
+
+        <p style="
+            font-size:0.75rem; 
+            color:#666; 
+            text-align:center;
+            margin-top:0.3rem;
+        ">
+            Para inquietudes adicionales, puede comunicarse directamente con la administración o el área contable.
+        </p>
+
+    </div>
+</section>
+
+<script>
+function enviarCitaMediana() {
+    const fecha = document.getElementById('fechaCita').value;
+    const hora = document.getElementById('horaCita').value;
+    const nombre = document.getElementById('nombreCita').value;
+    const apto = document.getElementById('aptoCita').value;
+    const motivo = document.getElementById('motivoCorto').value;
+
+    if (!fecha || !hora || !nombre || !apto || !motivo) {
+        alert("Por favor complete todos los campos.");
+        return;
+    }
+
+    const asunto = "Solicitud de Cita - " + nombre;
+    const cuerpo = 
+        "Fecha solicitada: " + fecha + "%0D%0A" +
+        "Horario aproximado: " + hora + "%0D%0A" +
+        "Nombre: " + nombre + "%0D%0A" +
+        "Apartamento: " + apto + "%0D%0A" +
+        "Motivo: " + motivo + "%0D%0A%0D%0A" +
+        "*La administración confirmará la disponibilidad de la fecha solicitada.*";
+
+    window.location.href = 
+        "mailto:conjuntoresidencialbariloche@gmail.com?subject=" + asunto + "&body=" + cuerpo;
+}
+</script>
+
+
+
+</div>
     <!-- Footer -->
     <footer>
         <p><strong>&copy; 2025 Unidad Residencial Bariloche</strong></p>
@@ -772,6 +928,8 @@
         document.querySelectorAll('.fade-in').forEach(element => {
             observer.observe(element);
         });
+
+
     </script>
 </body>
 </html>
