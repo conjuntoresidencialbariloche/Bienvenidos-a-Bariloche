@@ -331,6 +331,189 @@
             opacity: 1;
             transform: translateY(0);
         }
+/* RESPONSIVE DESIGN MEJORADO */
+@media (max-width: 1200px) {
+    nav {
+        padding: 0 1rem;
+    }
+    
+    .container {
+        padding: 2rem 1.5rem;
+    }
+    
+    .noticias-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    .boletin-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .boletin-logo {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .mensajes-semana h2,
+    .noticias-titulo {
+        font-size: 2rem;
+    }
+    
+    .noticias-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: 1.2rem;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        margin-top: 1rem;
+        align-items: center;
+    }
+    
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .boletin-header {
+        padding: 3rem 1.5rem 2rem;
+    }
+    
+    .boletin-header h1 {
+        font-size: 2rem;
+    }
+    
+    .boletin-header .fecha {
+        font-size: 1rem;
+    }
+    
+    .boletin-logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .container {
+        padding: 2rem 1rem;
+    }
+    
+    .mensajes-semana {
+        padding: 1.5rem;
+    }
+    
+    .mensajes-semana h2 {
+        font-size: 1.8rem;
+    }
+    
+    .mensaje-item {
+        padding: 1.2rem;
+    }
+    
+    .mensaje-item h3 {
+        font-size: 1.2rem;
+    }
+    
+    .noticias-titulo {
+        font-size: 1.8rem;
+    }
+    
+    .noticias-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .noticia-imagen {
+        height: 200px;
+        font-size: 3rem;
+    }
+    
+    .noticia-contenido {
+        padding: 1.5rem;
+    }
+    
+    .noticia-contenido h3 {
+        font-size: 1.3rem;
+    }
+    
+    footer {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .logo-container img {
+        height: 50px;
+    }
+    
+    .logo-text {
+        font-size: 1rem;
+    }
+    
+    .boletin-header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .boletin-header .fecha {
+        font-size: 0.9rem;
+    }
+    
+    .boletin-logo {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .mensajes-semana h2 {
+        font-size: 1.5rem;
+    }
+    
+    .mensaje-item h3 {
+        font-size: 1.1rem;
+    }
+    
+    .noticias-titulo {
+        font-size: 1.5rem;
+    }
+    
+    .noticia-contenido h3 {
+        font-size: 1.2rem;
+    }
+    
+    .noticia-tag {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.8rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .boletin-header h1 {
+        font-size: 1.4rem;
+    }
+    
+    .mensajes-semana,
+    .noticia-contenido {
+        padding: 1rem;
+    }
+    
+    .noticia-imagen {
+        height: 180px;
+        font-size: 2.5rem;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -409,9 +592,18 @@ La Administración y el Consejo de Administración agradecen su participación a
                     </div>
                     <div class="noticia-contenido">
                         <p class="noticia-fecha">Enero 2025</p>
-                        <h3>Acciones de Mejora y Convivencia Comunitaria</h3>
-                        <p>FALTA.</p>
-                        <span class="noticia-tag">Infraestructura</span>
+                        <h3>Planificación y Cambios Administrativos</h3>
+                        <p>
+✔️ <strong>Administración y Consejo de Administración:</strong><br>
+Se realizaron reuniones con el Consejo de Administración para planificar y organizar todos los aspectos necesarios para la próxima Asamblea General de Propietarios.<br><br>
+
+✔️ <strong>Cambio de empresa de vigilancia:</strong><br>
+Se ejecutó la transición de la empresa de vigilancia Rohen a Eurovi, garantizando la continuidad y mejora del servicio de seguridad 24/7 para toda la comunidad.<br><br>
+
+✔️ <strong>Organización administrativa:</strong><br>
+Se establecieron las bases para las actividades y mejoras proyectadas para el año 2025.
+</p>
+                        <span class="noticia-tag">Gestión Administrativa</span>
                     </div>
                 </div>
 
@@ -422,8 +614,17 @@ La Administración y el Consejo de Administración agradecen su participación a
                     </div>
                     <div class="noticia-contenido">
                         <p class="noticia-fecha">Febrero 2025</p>
-                        <h3>Día de la Familia Bariloche</h3>
-                        <p>FALTA</p>
+                        <h3>Convocatoria a Asamblea General</h3>
+                        <p>
+✔️ <strong>Convocatoria oficial:</strong><br>
+Se realizó la convocatoria formal a la Asamblea General de Propietarios, cumpliendo con todos los requisitos legales y tiempos establecidos en el reglamento de propiedad horizontal.<br><br>
+
+✔️ <strong>Preparación de documentación:</strong><br>
+Se prepararon los informes financieros, estados de cuenta, proyectos de mejora y demás documentos necesarios para la presentación ante la asamblea.<br><br>
+
+✔️ <strong>Comunicación con propietarios:</strong><br>
+Se enviaron notificaciones a todos los propietarios con el orden del día, fecha, hora y temas a tratar durante la reunión.
+</p>
                         <span class="noticia-tag">Eventos</span>
                     </div>
                 </div>
@@ -435,24 +636,26 @@ La Administración y el Consejo de Administración agradecen su participación a
                     </div>
                     <div class="noticia-contenido">
                         <p class="noticia-fecha">Marzo 2025</p>
-                        <h3>✔️ Mejoras en la comunicación:</h3>
-<p>Se adquirió un nuevo celular para portería con el fin de optimizar la atención a residentes mientras se superan las fallas en la citofonía.</p>
+                        <h3>Acciones de Mejora y Convivencia Comunitaria</h3>
+                        <p>
+✔️ <strong>Mejoras en la comunicación:</strong><br>
+Se adquirió un nuevo celular para portería con el fin de optimizar la atención a residentes mientras se superan las fallas en la citofonía.<br><br>
 
-<h3>✔️ Campañas de convivencia:</h3>
-<p>Se adelantaron campañas pedagógicas sobre el buen uso de los parqueaderos, la reducción de velocidad dentro del conjunto y el adecuado comportamiento con las mascotas en zonas comunes.</p>
+✔️ <strong>Campañas de convivencia:</strong><br>
+Se adelantaron campañas pedagógicas sobre el buen uso de los parqueaderos, la reducción de velocidad dentro del conjunto y el adecuado comportamiento con las mascotas en zonas comunes.<br><br>
 
-<h3>✔️ Cuidado del entorno:</h3>
-<p>Se promovió el ahorro responsable de agua y el respeto por los espacios compartidos.</p>
+✔️ <strong>Cuidado del entorno:</strong><br>
+Se promovió el ahorro responsable de agua y el respeto por los espacios compartidos.<br><br>
 
-<h3>✔️ Mantenimiento oportuno:</h3>
-<p>Se atendió de manera inmediata la reparación de una tubería rota en la Torre 6.</p>
+✔️ <strong>Mantenimiento oportuno:</strong><br>
+Se atendió de manera inmediata la reparación de una tubería rota en la Torre 6.<br><br>
 
-<h3>✔️ Gestión de mudanzas:</h3>
-<p>Se recordó a los residentes la importancia de informar y coordinar previamente cualquier mudanza con la Administración.</p>
-
-<span class="noticia-tag">Gestión Comunitaria</span>
-</div> 
-</div>
+✔️ <strong>Gestión de mudanzas:</strong><br>
+Se recordó a los residentes la importancia de informar y coordinar previamente cualquier mudanza con la Administración.
+</p>
+                        <span class="noticia-tag">Gestión Comunitaria</span>
+                    </div>
+                </div>
 
                 <!-- Noticia 4 -->
                 <div class="noticia-card fade-in">
@@ -462,30 +665,29 @@ La Administración y el Consejo de Administración agradecen su participación a
                     <div class="noticia-contenido">
                         <p class="noticia-fecha">Abril 2025</p>
                         <h3>Campañas Comunitarias y Mantenimiento General</h3>
-                       <p>
+                        <p>
 ✔️ <strong>Recolección de base de datos puerta a puerta:</strong><br>
 Se inició la actualización de la información de residentes y propietarios mediante visitas directas a cada apartamento. También se recordó a la comunidad los números de contacto de portería y administración.<br><br>
 
- <h3>✔️ Manejo responsable de mascotas:</h3>
-<p>Se reforzó la campaña sobre el adecuado manejo de las mascotas en zonas comunes, promoviendo el cumplimiento de las normas de convivencia.</p>
+✔️ <strong>Manejo responsable de mascotas:</strong><br>
+Se reforzó la campaña sobre el adecuado manejo de las mascotas en zonas comunes, promoviendo el cumplimiento de las normas de convivencia.<br><br>
 
-<h3>✔️ Cuidado de las áreas comunes:</h3>
-<p>Se realizó una campaña para recordar la importancia de no arrojar basuras en espacios compartidos y mantener la unidad limpia.</p>
+✔️ <strong>Cuidado de las áreas comunes:</strong><br>
+Se realizó una campaña para recordar la importancia de no arrojar basuras en espacios compartidos y mantener la unidad limpia.<br><br>
 
-<h3>✔️ Mantenimiento hidráulico:</h3>
-<p>Se ejecutaron trabajos de mantenimiento en las Torres 5, 6 y 7 para garantizar el buen funcionamiento de la red interna.</p>
+✔️ <strong>Mantenimiento hidráulico:</strong><br>
+Se ejecutaron trabajos de mantenimiento en las Torres 5, 6 y 7 para garantizar el buen funcionamiento de la red interna.<br><br>
 
-<h3>✔️ Campaña de cartera:</h3>
-<p>Se impulsó el pago oportuno de la cuota de administración, buscando reducir los niveles de morosidad en el conjunto.</p>
+✔️ <strong>Campaña de cartera:</strong><br>
+Se impulsó el pago oportuno de la cuota de administración, buscando reducir los niveles de morosidad en el conjunto.<br><br>
 
-<h3>✔️ Recomendaciones de Semana Santa:</h3>
-<p>Se compartieron lineamientos y cuidados generales para la temporada de Semana Santa con el fin de promover seguridad y buena convivencia.</p>
+✔️ <strong>Recomendaciones de Semana Santa:</strong><br>
+Se compartieron lineamientos y cuidados generales para la temporada de Semana Santa con el fin de promover seguridad y buena convivencia.<br><br>
 
-<h3>✔️ Cultura de reciclaje:</h3>
-<p>Se desarrolló una campaña pedagógica para fortalecer las prácticas responsables de reciclaje dentro de la unidad residencial.</p>
-
-<span class="noticia-tag">Gestión Integral</span>
-
+✔️ <strong>Cultura de reciclaje:</strong><br>
+Se desarrolló una campaña pedagógica para fortalecer las prácticas responsables de reciclaje dentro de la unidad residencial.
+</p>
+                        <span class="noticia-tag">Gestión Integral</span>
                     </div>
                 </div>
 
@@ -497,34 +699,35 @@ Se inició la actualización de la información de residentes y propietarios med
                     <div class="noticia-contenido">
                         <p class="noticia-fecha">Mayo 2025</p>
                         <h3>Gestión Administrativa, Seguridad y Mejoramiento Comunitario</h3>
-                        <p><h3>✔️ Información sobre la cuota de administración:</h3>
-<p>Se informó a propietarios y residentes el valor aprobado por asamblea: $389.000, con un descuento de $15.000 por pronto pago.</p>
+                        <p>
+✔️ <strong>Información sobre la cuota de administración:</strong><br>
+Se informó a propietarios y residentes el valor aprobado por asamblea: $389.000, con un descuento de $15.000 por pronto pago.<br><br>
 
-<h3>✔️ Día de las Madres:</h3>
-<p>Se extendió un mensaje de felicitación a todas las madres de la unidad residencial.</p>
+✔️ <strong>Día de las Madres:</strong><br>
+Se extendió un mensaje de felicitación a todas las madres de la unidad residencial.<br><br>
 
-<h3>✔️ Atención a emergencia por lluvias:</h3>
-<p>Tras la caída de un árbol sobre la oficina de administración, que generó afectaciones en la iluminación, se actuó de manera inmediata con apoyo del personal de aseo y EMCALI para restablecer el servicio.</p>
+✔️ <strong>Atención a emergencia por lluvias:</strong><br>
+Tras la caída de un árbol sobre la oficina de administración, que generó afectaciones en la iluminación, se actuó de manera inmediata con apoyo del personal de aseo y EMCALI para restablecer el servicio.<br><br>
 
-<h3>✔️ Brigada de Emergencia:</h3>
-<p>Se realizó campaña informativa para incentivar la participación; sin embargo, la asistencia fue mínima, por lo que se reforzó con dos nuevas campañas a final de mes.</p>
+✔️ <strong>Brigada de Emergencia:</strong><br>
+Se realizó campaña informativa para incentivar la participación; sin embargo, la asistencia fue mínima, por lo que se reforzó con dos nuevas campañas a final de mes.<br><br>
 
-<h3>✔️ Campaña de reciclaje:</h3>
-<p>Se continuó promoviendo prácticas responsables de reciclaje dentro del conjunto.</p>
+✔️ <strong>Campaña de reciclaje:</strong><br>
+Se continuó promoviendo prácticas responsables de reciclaje dentro del conjunto.<br><br>
 
-<h3>✔️ Gestión de cartera:</h3>
-<p>Se reiteró el llamado a realizar los pagos oportunos y a ponerse al día con la administración.</p>
+✔️ <strong>Gestión de cartera:</strong><br>
+Se reiteró el llamado a realizar los pagos oportunos y a ponerse al día con la administración.<br><br>
 
-<h3>✔️ Embellecimiento de áreas comunes:</h3>
-<p>Se inició la organización y reparación de tapas y cableado expuesto afectado por contratistas externos, invitando a la comunidad a trabajar conjuntamente en el cuidado de los espacios.</p>
+✔️ <strong>Embellecimiento de áreas comunes:</strong><br>
+Se inició la organización y reparación de tapas y cableado expuesto afectado por contratistas externos, invitando a la comunidad a trabajar conjuntamente en el cuidado de los espacios.<br><br>
 
-<h3>✔️ Seguridad comunitaria:</h3>
-<p>Se compartieron recomendaciones de seguridad debido al contexto nacional y las manifestaciones presentadas en la ciudad.</p>
+✔️ <strong>Seguridad comunitaria:</strong><br>
+Se compartieron recomendaciones de seguridad debido al contexto nacional y las manifestaciones presentadas en la ciudad.<br><br>
 
-<h3>✔️ Mejoras en iluminación:</h3>
-<p>Se reemplazaron lámparas y bombillos en diversas zonas para mejorar la visibilidad y seguridad en los pasillos.</p>
-
-<span class="noticia-tag">Gestión Comunitaria</span>
+✔️ <strong>Mejoras en iluminación:</strong><br>
+Se reemplazaron lámparas y bombillos en diversas zonas para mejorar la visibilidad y seguridad en los pasillos.
+</p>
+                        <span class="noticia-tag">Gestión Comunitaria</span>
                     </div>
                 </div>
 
@@ -536,31 +739,31 @@ Se inició la actualización de la información de residentes y propietarios med
                     <div class="noticia-contenido">
                         <p class="noticia-fecha">Junio 2025</p>
                         <h3>Mejoras en Infraestructura, Atención Comunitaria y Convivencia</h3>
-                        <h3>✔️ Mejoras en iluminación:</h3>
-<p>Se realizaron intervenciones en las zonas de parqueadero para optimizar la iluminación y reforzar la seguridad de los residentes.</p>
+                        <p>
+✔️ <strong>Mejoras en iluminación:</strong><br>
+Se realizaron intervenciones en las zonas de parqueadero para optimizar la iluminación y reforzar la seguridad de los residentes.<br><br>
 
-<h3>✔️ Atención personalizada de cartera:</h3>
-<p>Se desarrolló una jornada especial de atención individual para programar citas, revisar casos específicos y brindar soluciones de pago a los residentes.</p>
+✔️ <strong>Atención personalizada de cartera:</strong><br>
+Se desarrolló una jornada especial de atención individual para programar citas, revisar casos específicos y brindar soluciones de pago a los residentes.<br><br>
 
-<h3>✔️ Embellecimiento de áreas comunes:</h3>
-<p>Se adelantaron trabajos de mejoramiento en el piso de la UAR, contribuyendo al orden y conservación de los espacios.</p>
+✔️ <strong>Embellecimiento de áreas comunes:</strong><br>
+Se adelantaron trabajos de mejoramiento en el piso de la UAR, contribuyendo al orden y conservación de los espacios.<br><br>
 
-<h3>✔️ Prevención y seguridad:</h3>
-<p>Se elaboró y compartió la infografía titulada <em>“Por su seguridad y la de todos: medidas de prevención en momentos críticos”</em>, con pautas claras para la comunidad.</p>
+✔️ <strong>Prevención y seguridad:</strong><br>
+Se elaboró y compartió la infografía titulada <em>"Por su seguridad y la de todos: medidas de prevención en momentos críticos"</em>, con pautas claras para la comunidad.<br><br>
 
-<h3>✔️ Manejo responsable de mascotas:</h3>
-<p>Se retomó la campaña orientada al adecuado comportamiento y cuidado de las mascotas dentro de las zonas comunes.</p>
+✔️ <strong>Manejo responsable de mascotas:</strong><br>
+Se retomó la campaña orientada al adecuado comportamiento y cuidado de las mascotas dentro de las zonas comunes.<br><br>
 
-<h3>✔️ Día del Padre:</h3>
-<p>Se extendió un saludo especial a todos los padres de la unidad residencial.</p>
+✔️ <strong>Día del Padre:</strong><br>
+Se extendió un saludo especial a todos los padres de la unidad residencial.<br><br>
 
-<h3>✔️ Fumigación general:</h3>
-<p>Se realizó fumigación en áreas comunes y se informó oportunamente a toda la comunidad para su conocimiento y tranquilidad.</p>
-
-<span class="noticia-tag">Gestión Comunitaria</span>
-
+✔️ <strong>Fumigación general:</strong><br>
+Se realizó fumigación en áreas comunes y se informó oportunamente a toda la comunidad para su conocimiento y tranquilidad.
+</p>
+                        <span class="noticia-tag">Gestión Comunitaria</span>
                     </div>
-                </div>
+                </div>            
 
                 <!-- Noticia 7 -->
                 <div class="noticia-card fade-in">
@@ -569,46 +772,67 @@ Se inició la actualización de la información de residentes y propietarios med
                     </div>
                     <div class="noticia-contenido">
                         <p class="noticia-fecha">Julio 2025</p>
-                        <h3>Campañas de Seguridad, Convivencia y Comunicación Comunitaria</h3>
-                       <h3>✔️ Información sobre el nuevo Pico y Placa:</h3>
-<p>Se compartió a la comunidad una infografía oficial con los cambios establecidos por la Secretaría de Movilidad de Cali para facilitar su cumplimiento.</p>
+                        <h3>Seguridad, Señalización y Renovación de Seguros</h3>
+                        <p>
+✔️ <strong>Recarga de extintores:</strong><br>
+Se realizó la recarga anual de todos los extintores del conjunto, garantizando la seguridad contra incendios de todos los residentes y cumpliendo con las normativas vigentes.<br><br>
 
-<h3>✔️ Orden y seguridad en zonas comunes:</h3>
-<p>Se adelantó una campaña informativa recordando que, según la norma TED-MTC-1700 y lineamientos del Sistema de Gestión de Seguridad y Salud en el Trabajo, está prohibido ubicar objetos o materiales en pasillos, escaleras y zonas comunes debido al riesgo que representan en situaciones de evacuación.</p>
+✔️ <strong>Señalética de evacuación:</strong><br>
+Se instaló señalización completa en diferentes áreas indicando rutas de evacuación, puntos de encuentro y zonas de seguridad, cumpliendo con las normas de Seguridad y Salud en el Trabajo.<br><br>
 
-<h3>✔️ Comunicación personalizada:</h3>
-<p>Se entregó a cada apartamento un comunicado físico complementando la información de la campaña, reforzando la importancia de mantener los espacios despejados.</p>
+✔️ <strong>Pintura de infraestructura:</strong><br>
+Se realizó la pintura de las cajas de gas y cajas de comunicaciones para mejorar la presentación y conservación de la infraestructura.<br><br>
 
-<h3>✔️ Canales oficiales de contacto:</h3>
-<p>Se difundió una infografía con los números telefónicos y medios de comunicación de la administración para mejorar la atención y respuesta a los residentes.</p>
+✔️ <strong>Renovación de póliza de seguros:</strong><br>
+Se renovó el contrato con la compañía Mapfre para la cobertura de seguros del conjunto durante el período 2025-2026, protegiendo los bienes comunes y áreas de la unidad residencial.<br><br>
 
-<h3>✔️ Ingreso y salida de vehículos:</h3>
-<p>Se realizó campaña para recordar la importancia de permitir el ingreso inmediato del vehículo, evitando riesgos innecesarios para los residentes al permanecer en zonas expuestas.</p>
+✔️ <strong>Información sobre Pico y Placa:</strong><br>
+Se compartió a la comunidad una infografía oficial con los cambios establecidos por la Secretaría de Movilidad de Cali para facilitar su cumplimiento.<br><br>
 
-<h3>✔️ Comité de Convivencia:</h3>
-<p>Se compartió información sobre sus funciones, alcances y procedimientos, con el fin de fortalecer la resolución respetuosa de conflictos dentro de la unidad.</p>
+✔️ <strong>Orden y seguridad en zonas comunes:</strong><br>
+Se adelantó una campaña informativa recordando que, según la norma TED-MTC-1700 y lineamientos del Sistema de Gestión de Seguridad y Salud en el Trabajo, está prohibido ubicar objetos o materiales en pasillos, escaleras y zonas comunes debido al riesgo que representan en situaciones de evacuación.<br><br>
 
-<h3>✔️ Reunión sobre bienestar animal:</h3>
-<p>Se llevó a cabo una reunión virtual para tratar la situación de las mascotas y casos de presunto maltrato animal, brindando orientación sobre el actuar adecuado de los residentes en estos escenarios.</p>
+✔️ <strong>Comunicación personalizada:</strong><br>
+Se entregó a cada apartamento un comunicado físico complementando la información de la campaña, reforzando la importancia de mantener los espacios despejados.<br><br>
 
-<span class="noticia-tag">Gestión Comunitaria</span>
+✔️ <strong>Canales oficiales de contacto:</strong><br>
+Se difundió una infografía con los números telefónicos y medios de comunicación de la administración para mejorar la atención y respuesta a los residentes.<br><br>
 
+✔️ <strong>Ingreso y salida de vehículos:</strong><br>
+Se realizó campaña para recordar la importancia de permitir el ingreso inmediato del vehículo, evitando riesgos innecesarios para los residentes al permanecer en zonas expuestas.<br><br>
+
+✔️ <strong>Comité de Convivencia:</strong><br>
+Se compartió información sobre sus funciones, alcances y procedimientos, con el fin de fortalecer la resolución respetuosa de conflictos dentro de la unidad.<br><br>
+
+✔️ <strong>Reunión sobre bienestar animal:</strong><br>
+Se llevó a cabo una reunión virtual para tratar la situación de las mascotas y casos de presunto maltrato animal, brindando orientación sobre el actuar adecuado de los residentes en estos escenarios.
+</p>
+                        <span class="noticia-tag">Seguridad y Normativa</span>
                     </div>
                 </div>
 
-                <!-- Noticia 8 -->
+               <!-- Noticia 8 -->
                 <div class="noticia-card fade-in">
                     <div class="noticia-imagen">
                         🏊
                     </div>
                     <div class="noticia-contenido">
                         <p class="noticia-fecha">Agosto 2025</p>
-                        <h3>Convivencia y Bienestar Animal</h3>
-                        <h3>✔️ Webinar sobre bienestar y responsabilidad con las mascotas:</h3>
-<p>Se invitó a la comunidad a participar en el webinar <em>“Mi compañero, mi compromiso”</em>, orientado a fortalecer la tenencia responsable de mascotas y promover una convivencia armónica dentro del conjunto.</p>
+                        <h3>Reconocimiento Laboral y Embellecimiento de Jardines</h3>
+                        <p>
+✔️ <strong>Reconocimiento al Sr. Orlando Salinas:</strong><br>
+La administración realizó un desembolso de $500.000 como reconocimiento y agradecimiento al señor Orlando Salinas, indicaciones dadas por el Consejo de Administración quien por varios años brindó sus servicios de vigilancia en la unidad residencial. Un gesto que valora su compromiso, dedicación y lealtad con nuestra comunidad.<br><br>
 
-<span class="noticia-tag">Gestión Comunitaria</span>
+✔️ <strong>Organización de jardines externos e internos:</strong><br>
+Se inició el proyecto de reorganización y embellecimiento de las zonas verdes tanto externas como internas del conjunto, mejorando la estética y el ambiente de las áreas comunes.<br><br>
 
+✔️ <strong>Campaña de cuidado con niños:</strong><br>
+Se desarrolló una campaña especial dirigida a padres y residentes sobre el cuidado y supervisión de los niños en las zonas de jardines, promoviendo el respeto por las plantas y la seguridad de los menores.<br><br>
+
+✔️ <strong>Webinar sobre bienestar y responsabilidad con las mascotas:</strong><br>
+Se invitó a la comunidad a participar en el webinar <em>"Mi compañero, mi compromiso"</em>, orientado a fortalecer la tenencia responsable de mascotas y promover una convivencia armónica dentro del conjunto.
+</p>
+                        <span class="noticia-tag">Gestión Comunitaria</span>
                     </div>
                 </div>
 
@@ -619,18 +843,18 @@ Se inició la actualización de la información de residentes y propietarios med
                     </div>
                     <div class="noticia-contenido">
                         <p class="noticia-fecha">Septiembre 2025</p>
-                        <h3>Mantenimiento Preventivo, Seguridad y Comunicaciones Comunitarias/h3>
-                        <h3>✔️ Mantenimiento del transformador:</h3>
-<p>Se realizó el mantenimiento preventivo del transformador para garantizar la estabilidad del servicio eléctrico. La suspensión temporal de energía fue informada previamente a toda la comunidad.</p>
+                        <h3>Mantenimiento Preventivo, Seguridad y Comunicaciones Comunitarias</h3>
+                        <p>
+✔️ <strong>Mantenimiento del transformador:</strong><br>
+Se realizó el mantenimiento preventivo del transformador para garantizar la estabilidad del servicio eléctrico. La suspensión temporal de energía fue informada previamente a toda la comunidad.<br><br>
 
-<h3>✔️ Mejoras en la puerta vehicular:</h3>
-<p>Se instalaron sensores y se efectuaron ajustes necesarios para optimizar el funcionamiento de la puerta vehicular. Estas mejoras hacen parte del proceso para avanzar hacia la certificación exigida por la normativa vigente.</p>
+✔️ <strong>Mejoras en la puerta vehicular:</strong><br>
+Se instalaron sensores y se efectuaron ajustes necesarios para optimizar el funcionamiento de la puerta vehicular. Estas mejoras hacen parte del proceso para avanzar hacia la certificación exigida por la normativa vigente.<br><br>
 
-<h3>✔️ Información anticipada sobre el lavado del tanque:</h3>
-<p>Se compartió a los residentes una infografía notificando la programación del lavado del tanque de agua potable a realizarse en octubre, brindando tiempo oportuno para preparativos.</p>
-
-<span class="noticia-tag">Gestión Comunitaria</span>
-
+✔️ <strong>Información anticipada sobre el lavado del tanque:</strong><br>
+Se compartió a los residentes una infografía notificando la programación del lavado del tanque de agua potable a realizarse en octubre, brindando tiempo oportuno para preparativos.
+</p>
+                        <span class="noticia-tag">Gestión Comunitaria</span>
                     </div>
                 </div>
 
@@ -641,19 +865,21 @@ Se inició la actualización de la información de residentes y propietarios med
                     </div>
                     <div class="noticia-contenido">
                         <p class="noticia-fecha">Octubre 2025</p>
-                        <h3>Actividades, Mantenimientos y Eventos Comunitarios</h3>
-                        <h2>OCTUBRE</h2>
+                        <h3>Celebración de Halloween y Mantenimiento Continuo</h3>
+                        <p>
+✔️ <strong>Recordatorio sobre sensores de puerta vehicular:</strong><br>
+Se realizó recordación a la comunidad sobre los sensores instalados en la puerta vehicular, incluyendo la marcación realizada para mejorar la seguridad y el buen uso del sistema.<br><br>
 
-<p>
-✔️ Se realizó recordación a la comunidad sobre los sensores instalados en la puerta vehicular, incluyendo la marcación realizada para mejorar la seguridad y el buen uso del sistema.<br><br>
+✔️ <strong>Lavado del tanque de agua:</strong><br>
+Se inició el mes con el lavado del tanque de agua potable, actividad ejecutada de manera exitosa y comunicada previamente a todos los residentes para garantizar la calidad del servicio.<br><br>
 
-✔️ Se inició el mes con el lavado del tanque de agua, actividad ejecutada de manera exitosa y comunicada previamente a todos los residentes.<br><br>
+✔️ <strong>Celebración del Día de los Niños - Halloween:</strong><br>
+Se informó y se llevó a cabo con éxito la celebración del Día de los Niños - Halloween, logrando una excelente participación de los residentes y garantizando un espacio seguro, divertido y organizado para los menores.<br><br>
 
-✔️ Se informó y se llevó a cabo con éxito la celebración del Día de los Niños – Halloween, logrando una excelente participación de los residentes y garantizando un espacio seguro y organizado para los menores.<br><br>
+✔️ <strong>Agradecimiento especial:</strong><br>
+La administración agradece profundamente a todos los residentes que se involucraron activamente en la organización y desarrollo de la actividad de Halloween, haciendo posible un evento memorable para nuestros niños.
 </p>
-
-<span class="noticia-tag">Seguridad y Comunidad</span>
-
+                        <span class="noticia-tag">Eventos y Comunidad</span>
                     </div>
                 </div>
 
@@ -666,15 +892,15 @@ Se inició la actualización de la información de residentes y propietarios med
                         <p class="noticia-fecha">Noviembre 2025</p>
                         <h3>Reparaciones Locativas y Preparativos de Navidad</h3>
                         <p>
-✔️ Se realizaron reparaciones locativas en diferentes zonas comunes, interviniendo daños pendientes con personal calificado para garantizar un mantenimiento adecuado de la unidad.<br><br>
+✔️ <strong>Reparaciones locativas:</strong><br>
+Se realizaron reparaciones locativas en diferentes zonas comunes, interviniendo daños pendientes con personal calificado para garantizar un mantenimiento adecuado de la unidad.<br><br>
 
-✔️ Con el apoyo del personal de aseo, se llevaron a cabo las instalaciones y preparativos correspondientes a la temporada de Navidad, embelleciendo los espacios comunes para toda la comunidad.<br><br>
+✔️ <strong>Preparativos de Navidad:</strong><br>
+Con el apoyo del personal de aseo, se llevaron a cabo las instalaciones y preparativos correspondientes a la temporada de Navidad, embelleciendo los espacios comunes para toda la comunidad.
 </p>
-<span class="noticia-tag">Gestión Operativa</span>
-
-
+                        <span class="noticia-tag">Gestión Operativa</span>
                     </div>
-                </div>
+                </div>                   
 
                 <!-- Noticia 12 -->
                 <div class="noticia-card fade-in">
@@ -683,7 +909,7 @@ Se inició la actualización de la información de residentes y propietarios med
                     </div>
                     <div class="noticia-contenido">
                         <p class="noticia-fecha">Diciembre 2025</p>
-                        <h3>Gestión y Comunicaciones – Diciembre</h3>
+                        <h3>Gestión y Comunicaciones - Diciembre</h3>
                         <p>
 ✔️ <strong>Entrega del KIT DE CONVIVENCIA por apartamento:</strong><br>
 Durante diciembre se entregará a cada residente y propietario un sobre que incluye: el Manual de Convivencia, indicaciones del Buzón de Quejas y Reclamos, hoja con números de contacto (administración, portería y emergencias), códigos QR para actualización de datos, acceso al buzón digital y formato de calificación del servicio del personal. Todos estos documentos podrán diligenciarse de manera virtual o manual, depositándolos en la cajita de sugerencias ubicada en administración.<br><br>
@@ -697,18 +923,20 @@ Se informará a la comunidad la programación oficial del pesebre y los días de
 ✔️ <strong>Caja de aguinaldos:</strong><br>
 Se habilitará en portería una caja especial para la entrega de aguinaldos destinados al personal de la unidad.
 </p>
-<span class="noticia-tag">Gestión Comunitaria</span>
+                        <span class="noticia-tag">Gestión Comunitaria</span>
                     </div>
                 </div>
             </div>
         </section>
     </div>
 
+
     <!-- Footer -->
     <footer>
         <p><strong>&copy; 2025 Unidad Residencial Bariloche</strong></p>
-        <p>Boletín Informativo - Todos los derechos reservados</p>
+        <p>Todos los derechos reservados</p>
         <p style="margin-top: 1rem; font-style: italic;">"Creciendo juntos, construyendo futuro"</p>
+        <p style="margin-top: 1rem;">Desarrollado para mejorar la comunicación y convivencia de nuestra comunidad</p>
     </footer>
 
     <script>
@@ -726,7 +954,7 @@ Se habilitará en portería una caja especial para la entrega de aguinaldos dest
             });
         });
 
-        // Animación de entrada
+        // Animación de entrada para elementos
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {

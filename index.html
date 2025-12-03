@@ -362,6 +362,187 @@
             opacity: 1;
             transform: translateY(0);
         }
+/* RESPONSIVE DESIGN MEJORADO */
+@media (max-width: 1200px) {
+    nav {
+        padding: 0 1rem;
+    }
+    
+    section {
+        padding: 3rem 1.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    
+    .hero-logo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    section h2 {
+        font-size: 2.2rem;
+    }
+    
+    .formularios-grid,
+    .contacto-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: 1.2rem;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        margin-top: 1rem;
+        align-items: center;
+    }
+    
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .hero {
+        padding: 4rem 1.5rem 3rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .hero-logo {
+        width: 100px;
+        height: 100px;
+    }
+    
+    section {
+        padding: 3rem 1rem;
+    }
+    
+    section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .formularios-grid,
+    .contacto-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .formulario-card,
+    .contacto-card {
+        margin: 0;
+    }
+    
+    .proteccion-datos {
+        padding: 1.5rem;
+    }
+    
+    .proteccion-datos h3 {
+        font-size: 1.5rem;
+    }
+    
+    .qr-container img {
+        max-width: 180px;
+    }
+    
+    /* Sección de información (mudanzas, velocidad, vehículos) */
+    .info-card {
+        padding: 1.5rem !important;
+    }
+    
+    .info-card h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .info-card .mensaje-item {
+        padding: 1rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .logo-container img {
+        height: 50px;
+    }
+    
+    .logo-text {
+        font-size: 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .hero-logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .formulario-header h3,
+    .contacto-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .formulario-icon,
+    .contacto-icon {
+        font-size: 2.5rem;
+    }
+    
+    .btn-primary {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    footer {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    
+    section h2 {
+        font-size: 1.3rem;
+    }
+    
+    .formulario-body,
+    .contacto-card {
+        padding: 1.5rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -391,6 +572,79 @@
             <h1>Bienvenidos a Bariloche</h1>
             <p>Tu hogar, nuestra comunidad</p>
             <p class="hero-tagline" style="font-style: italic; opacity: 0.9;">"Creciendo juntos, construyendo futuro"</p>
+        </div>
+    </section>
+
+<!-- Información Importante -->
+    <section id="informacion" style="background: white;">
+        <h2>Información Importante</h2>
+        <p class="section-subtitle">Normas y horarios para una mejor convivencia</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-top: 3rem;">
+            
+            <!-- Mudanzas -->
+            <div class="info-card fade-in" style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-left: 5px solid #e74c3c;">
+                <div style="text-align: center; font-size: 4rem; margin-bottom: 1rem;">📦</div>
+                <h3 style="color: #e74c3c; font-size: 1.8rem; margin-bottom: 1rem; text-align: center;">Horarios de Mudanza</h3>
+                <div style="background: #fff5f5; padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                    <p style="font-size: 1.1rem; color: #555; line-height: 1.8; margin-bottom: 1rem;"><strong>⏰ Horarios permitidos:</strong></p>
+                    <p style="color: #555; line-height: 1.8;">• Lunes a Viernes: 8:00 AM - 5:00 PM</p>
+                    <p style="color: #555; line-height: 1.8;">• Sábados: 8:00 AM - 12:00 M</p>
+                    <p style="color: #555; line-height: 1.8; margin-top: 1rem;"><strong>🚫 No se permiten mudanzas:</strong></p>
+                    <p style="color: #555; line-height: 1.8;">• Domingos y festivos</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; padding: 1.5rem; border-radius: 10px; text-align: center;">
+                    <p style="font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem; color: white;">⚠️ IMPORTANTE</p>
+                    <p style="color: white; line-height: 1.8;">Las mudanzas deben ser solicitadas y autorizadas previamente por la Administración con mínimo 48 horas de anticipación.</p>
+                    <a href="mailto:conjuntoresidencialbariloche@gmail.com?subject=Solicitud de Mudanza&body=Nombre:%0D%0ATorre y Apartamento:%0D%0AFecha solicitada:%0D%0AHorario:%0D%0ATipo (Entrada/Salida):%0D%0ATeléfono de contacto:%0D%0A" style="display: inline-block; background: white; color: #e74c3c; padding: 0.8rem 1.5rem; text-decoration: none; border-radius: 25px; margin-top: 1rem; font-weight: 600; transition: all 0.3s;">Solicitar Mudanza</a>
+                </div>
+            </div>
+            
+            <!-- Velocidad -->
+            <div class="info-card fade-in" style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-left: 5px solid #f39c12;">
+                <div style="text-align: center; font-size: 4rem; margin-bottom: 1rem;">🚗</div>
+                <h3 style="color: #f39c12; font-size: 1.8rem; margin-bottom: 1rem; text-align: center;">Velocidad Permitida</h3>
+                <div style="background: #fff9e6; padding: 2rem; border-radius: 10px; text-align: center; margin-bottom: 1.5rem;">
+                    <p style="font-size: 3rem; font-weight: bold; color: #f39c12; margin-bottom: 0.5rem;">10 km/h</p>
+                    <p style="color: #555; font-size: 1.2rem; font-weight: 600;">Velocidad máxima</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); color: white; padding: 1.5rem; border-radius: 10px;">
+                    <p style="font-weight: bold; font-size: 1.1rem; margin-bottom: 1rem; color: white; text-align: center;">⚠️ Por la seguridad de todos</p>
+                    <ul style="list-style: none; padding: 0; color: white; line-height: 2;">
+                        <li>✓ Respeta la velocidad máxima</li>
+                        <li>✓ Ten precaución con niños y mascotas</li>
+                        <li>✓ Cede el paso a peatones</li>
+                        <li>✓ No uses el celular al conducir</li>
+                        <li>✓ Respeta las señales de tránsito</li>
+                    </ul>
+                </div>
+                <p style="text-align: center; margin-top: 1.5rem; color: #555; font-style: italic;">La seguridad de nuestra comunidad está en tus manos</p>
+            </div>
+            
+            <!-- Registro de Vehículos -->
+            <div class="info-card fade-in" style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-left: 5px solid #3498db;">
+                <div style="text-align: center; font-size: 4rem; margin-bottom: 1rem;">🚙</div>
+                <h3 style="color: #3498db; font-size: 1.8rem; margin-bottom: 1rem; text-align: center;">Registro de Vehículos</h3>
+                <div style="background: #e8f4fd; padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                    <p style="font-size: 1.1rem; color: #555; line-height: 1.8; margin-bottom: 1rem;"><strong>📋 Datos requeridos:</strong></p>
+                    <ul style="color: #555; line-height: 1.8; margin-left: 1.5rem;">
+                        <li>Nombre del propietario/residente</li>
+                        <li>Torre y número de apartamento</li>
+                        <li>Marca y modelo del vehículo</li>
+                        <li>Placa del vehículo</li>
+                        <li>Color del vehículo</li>
+                        <li>Teléfono de contacto</li>
+                        <li>Tipo de vehículo (Auto/Moto)</li>
+                    </ul>
+                </div>
+                <div style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); color: white; padding: 1.5rem; border-radius: 10px; text-align: center;">
+                    <p style="font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem; color: white;">🔐 Control de Acceso</p>
+                    <p style="color: white; line-height: 1.8; margin-bottom: 1rem;">Registra tu vehículo nuevo para facilitar el ingreso y mejorar la seguridad del conjunto.</p>
+                    <a href="mailto:conjuntoresidencialbariloche@gmail.com?subject=Registro de Vehículo Nuevo&body=DATOS DEL PROPIETARIO/RESIDENTE:%0D%0ANombre completo:%0D%0ATorre y Apartamento:%0D%0ATeléfono de contacto:%0D%0A%0D%0ADATOS DEL VEHÍCULO:%0D%0ATipo de vehículo (Auto/Moto):%0D%0AMarca:%0D%0AModelo:%0D%0APlaca:%0D%0AColor:%0D%0AAño:%0D%0A%0D%0AINFORMACIÓN ADICIONAL:%0D%0A¿Es residente o visitante frecuente?:%0D%0A" style="display: inline-block; background: white; color: #3498db; padding: 0.8rem 1.5rem; text-decoration: none; border-radius: 25px; margin-top: 1rem; font-weight: 600; transition: all 0.3s;">Registrar Vehículo</a>
+                </div>
+                <p style="text-align: center; margin-top: 1.5rem; color: #555; font-size: 0.9rem; font-style: italic;">El registro es obligatorio para todos los vehículos que ingresan regularmente</p>
+            </div>
+            
         </div>
     </section>
 
